@@ -1,0 +1,45 @@
+<!Doctype html>
+<html ng-app="app">
+    <head>
+        <title>Angular JS App</title>
+    </head>
+    
+    <script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/ControllerNG.js"></script>
+    <script src="app/controllers/CustomersController.js"></script>
+	<script src="app/controllers/OrdersController.js"></script>
+	<script src="app/services/CustomersFactory.js"></script>
+	<script src="app/services/CustomersService.js"></script>
+	<script src="app/services/values.js"></script>
+        
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    
+    <body>
+        <div ng-init="data={name:'Rojan', isVisible: true, loggedIn: false, status: 						'red', address: '3120 Park Rd'}">
+			
+			<div ng-switch on="data.loggedIn">
+				<div ng-switch-when="true" ng-class="data.status">
+					{{data.address}}
+				</div>
+	<!-- <button ng-switch-default="false" >Login</button>-->
+			</div>
+			
+            <div ng-class="data.status">
+            	<h2>WELCOME {{data.name | uppercase}} !!!</h2>
+        	</div>
+			
+            <div>
+				Name: <input type="text" ng-model="data.name"/>
+
+				<button ng-click="data.name='Sarita'" >Change Name</button><br>
+
+				<span ng-show="data.isVisible">{{data.name}}</span>  
+        	</div><br>
+		</div>
+		
+        <div ng-view></div>
+		
+    </body>
+</html>
