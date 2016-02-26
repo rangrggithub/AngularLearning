@@ -7,13 +7,15 @@
     <script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/angular-route.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="app/controllers/ControllerNG.js"></script>
+<!--    <script type="text/javascript" src="app/controllers/ControllerNG.js"></script>-->
     <script src="app/controllers/CustomersController.js"></script>
 	<script src="app/controllers/OrdersController.js"></script>
+	<script src="app/controllers/AllOrdersController.js"></script>
 	<script src="app/services/CustomersFactory.js"></script>
-	<script src="app/services/CustomersService.js"></script>
+<!--	<script src="app/services/CustomersService.js"></script>-->
 	<script src="app/services/values.js"></script>
-        
+    
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     
     <body>
@@ -38,7 +40,14 @@
 				<span ng-show="data.isVisible">{{data.name}}</span>  
         	</div><br>
 		</div>
-		
+		<header>
+			<nav class="nav navbar-default">
+				<ul class="nav navbar-nav">
+					<li><a href="#/customers">Customers</a></li>
+					<li><a href="#/orders">Orders</a></li>
+				</ul>
+			</nav>
+		</header>
         <div ng-view></div>
 		
     </body>

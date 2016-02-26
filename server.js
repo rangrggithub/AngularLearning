@@ -1,6 +1,8 @@
 var express = require('express'),
 	app = express();
 
+app.use(express.static(__dirname + '/'));
+
 app.get('/customers/:id', function (req, res){
 	var customerId = parseInt(req.params.id);
 	var data = {};
@@ -15,6 +17,12 @@ app.get('/customers/:id', function (req, res){
 
 app.get('/customers', function (req, res){
 	res.json(customers);
+//	res.json(500, {error: 'An error has occured!'});
+});
+
+app.get('/orders', function (req, res){
+	res.json(orders);
+//	res.json(500, {error: 'An error has occured!'});
 });
 
 app.listen(3000);

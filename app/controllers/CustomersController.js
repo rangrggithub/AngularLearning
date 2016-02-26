@@ -25,12 +25,21 @@
 (function() {
 	// When you use Factory inject CustomersFactory
 	
-	function CustomersController($scope, CustomersFactory, appDesc){
+	function CustomersController($scope, $log, CustomersFactory, appDesc){
   		$scope.customers = [];
 		$scope.appDesc = appDesc;
 		
 		function init(){
-			$scope.customers = CustomersFactory.getCustomers();
+			CustomersFactory.getCustomers()
+				.success(function(customers) {
+				$scope.customers = customers;
+			})
+				.error(function(data, status, headers, config) {
+				// Handle error
+			//	$log.log(data.error+ ' '+ status);
+				
+			});
+		//	$scope.customers = CustomersFactory.getCustomers();
 			
 		}
 		
@@ -47,6 +56,7 @@ angular
 	.module('app')
 	.controller('CustomersController', [
 		'$scope',
+		'$log',
 		'CustomersFactory', 
 		'appDesc',
 	CustomersController]);

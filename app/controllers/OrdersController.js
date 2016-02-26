@@ -4,8 +4,16 @@
 		$scope.customer = null;
 		
 		function init(){
+			CustomersFactory.getCustomer(customerId)
+				.success(function(customer) {
+				$scope.customer = customer;
+			})
+				.error(function(data, status, headers, config) {
+				// Handle error
+			});
+			
 			//Search the customers for customeId
-			$scope.customer = CustomersFactory.getCustomer(customerId);
+		//	$scope.customer = CustomersFactory.getCustomer(customerId);
 		}
 		
 		init();
