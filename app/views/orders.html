@@ -1,11 +1,33 @@
-<h2>Order Details</h2>
-<table>
+
+<h3>{{ customer.name }}'s Details</h3>
+<table class="table" style="width: 300px; border: 1px solid grey;">
 	<tr>
 		<th>Product</th>
 		<th>Total</th>
 	</tr>
-	<tr ng-repeat="order in customer.orders">
+	<tr ng-repeat="order in customer.orders | orderBy: 'total'">
 		<td>{{ order.product }}</td>
 		<td>{{ order.total | currency }}</td>
 	</tr>
 </table>
+
+<div ng-controller="ControllerNG">
+	<h4>Shared Scope Directive</h4>
+	<shared-directive></shared-directive>
+	<br>
+
+	<h4>Isolate Scope Directive</h4>
+	<isolate-directive></isolate-directive>
+
+	<h4>Isolate Scope With String</h4>
+	<isolate-scope-with-string name="{{user.name}}"></isolate-scope-with-string>
+
+	<h4>Isolate Scope Wiyh Object</h4>
+	<isolate-scope-with-object datasource="user"></isolate-scope-with-object>
+
+	<h4>Isolate Scope With Event</h4>
+	<isolate-scope-with-event datasource="user" action="changeData()"></isolate-scope-with-event>
+
+	<h4>Link Demo</h4>
+	<div link-demo>Click Here</div>
+</div>

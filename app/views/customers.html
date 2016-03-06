@@ -1,36 +1,38 @@
-<!--Sample
-        <ul>
-            <li ng-repeat="customer in customers | orderBy: '-age'">                                {{customer.name + ' : ' + customer.country}}</li>
-        </ul>
--->     
-<h2>{{ appDesc.title }}</h2>
-	<div ng-hide="isHidden">
-		Search: <input type="text" ng-model="customerFilter.name">
+
+	  
+<h3>{{ appDesc.title }}</h3>
+Search: <input type="text" ng-model="customerFilter.name">
+		<br/><br/>
+	<div ng-hide="isHidden" class="repeat-animation">
 		
-	
-    	<table>
+	<fieldset style="width: 70%; border: 1px solid grey;">
+		<table class="table table-striped">
 			<tr>
-                <th ng-click="doSort('name')">Name</th>
-                <th ng-click="doSort('country')">Country</th>
-                <th ng-click="doSort('orderTotal')">orderTotal</th>
-                <th ng-click="doSort('joined')">Joined</th>
-				<th>&nbsp;</th>
+				<a>
+					<th ng-click="doSort('name')">Name</th>
+					<th ng-click="doSort('state')">State</th>
+					<th ng-click="doSort('orderTotal')">orderTotal</th>
+					<th ng-click="doSort('joined')">Joined</th>
+				</a>
+				<th>Order View</th>
+				<th>Remove</th>
             </tr>
 
             <tr ng-repeat="customer in customers | filter: customerFilter | orderBy: sortBy: reverse">
                 <td>{{customer.name}}</td>
-                <td>{{customer.country}}</td>
+                <td>{{customer.state}}</td>
                 <td>{{customer.orderTotal | currency: '$'}}</td>
                 <td>{{customer.joined | date: 'yyyy-MM-dd'}}</td>
 				<td><a href="#/orders/{{customer.id}}">View Orders</a></td>
+				<td class="center"><span class="glyphicon glyphicon-remove delete" ng-click="deleteCustomer(customer.id)"></span></td>
             </tr>
-            </tbody>
-
         </table>
-            <br/>
+		
+	</fieldset>
+    	<br>
         <span>Total Customers: {{customers.length}}</span>
 </div>
 <!--Hide: <button type="checkbox" ng-model="isHidden"></button>-->
-<br><br>
+<br>
 
 <footer>Version: {{appDesc.version}}</footer>

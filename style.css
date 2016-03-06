@@ -1,7 +1,60 @@
+html{
+	margin: auto;
+	padding-left: 20px;
+	font-family: fantasy;
+}
+
 .red {
     color:red;
 }
 
 .navy {
     color: navy;
+}
+
+header,nav, footer {
+	display: block;
+}
+table {
+	width: 100%;
+}
+table th {
+	background-color: #ced1d6;
+	color: #0079C1;
+	cursor: pointer;
+}
+
+table tr td {
+	
+}
+header nav ul li {
+	font: 25px bold;
+}
+
+h3 {
+	font: 25px bold;
+}
+
+button {
+	padding: 0;
+	border: 0;
+	display: inline;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.72857143;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	background-color: #428bca;
+	border-color: #357ebd
+	cursor: pointer;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #c0c0c0;
+}
+input {
+	box-sizing: border-box;
 }

@@ -6,17 +6,26 @@
     
     <script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/angular-route.js"></script>
+	<script type="text/javascript" src="js/angular-animate.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
-<!--    <script type="text/javascript" src="app/controllers/ControllerNG.js"></script>-->
+    <script src="app/controllers/ControllerNG.js"></script>
     <script src="app/controllers/CustomersController.js"></script>
 	<script src="app/controllers/OrdersController.js"></script>
 	<script src="app/controllers/AllOrdersController.js"></script>
 	<script src="app/services/CustomersFactory.js"></script>
+	<script src="app/directives/helloDirectives.js"></script>
+	<script src="app/directives/sharedDirectives.js"></script>
+	<script src="app/directives/isolateDirectives.js"></script>
+	<script src="app/directives/isolateScopeWithString.js"></script>
+	<script src="app/directives/isolateScopeWithObject.js"></script>
+	<script src="app/directives/isolateScopeWithEvent.js"></script>
+	<script src="app/directives/links.js"></script>
 <!--	<script src="app/services/CustomersService.js"></script>-->
 	<script src="app/services/values.js"></script>
     
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+	<link href="css/animation.css" rel="stylesheet"/>
     
     <body>
         <div ng-init="data={name:'Rojan', isVisible: true, loggedIn: false, status: 						'red', address: '3120 Park Rd'}">
@@ -29,7 +38,8 @@
 			</div>
 			
             <div ng-class="data.status">
-            	<h2>WELCOME {{data.name | uppercase}} !!!</h2>
+				
+            	<h3><hello-world></hello-world> {{data.name | uppercase}} !!!</h3>
         	</div>
 			
             <div>
@@ -48,7 +58,6 @@
 				</ul>
 			</nav>
 		</header>
-        <div ng-view></div>
-		
+        <div ng-view class="slide-animation"></div>
     </body>
 </html>

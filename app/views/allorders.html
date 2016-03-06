@@ -1,13 +1,16 @@
-<h2>Order Details</h2>
-<br>
+<div class="repeat-animation">
+
+<h3>Order Details</h3>
+
 Search: <input type="text" ng-model="orderFilter.product"/>
-<br/>
-<table>
+<br/><br/>
+	<div>
+		<table class="table" style="width: 300px; border: 1px solid grey;">
 	<tr>
-		<th>Product</th>
+		<th ng-click="doSort('product')">Product</th>
 		<th>Total</th>
 	</tr>
-	<tr ng-repeat="order in orders | filter: orderFilter: orderBy: 'name'">
+	<tr ng-repeat="order in orders | filter: orderFilter | orderBy: 'product'">
 		<td>{{ order.product }}</td>
 		<td>{{ order.total | currency }}</td>
 	</tr>
@@ -16,3 +19,6 @@ Search: <input type="text" ng-model="orderFilter.product"/>
 		<td>{{ ordersTotal | currency }}</td>
 	</tr>
 </table>
+	</div>
+
+</div>

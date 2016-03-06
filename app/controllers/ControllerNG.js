@@ -1,43 +1,70 @@
-//Option 1
-
-//var app = angular.module('app', []);
-
-app.controller('ControllerNG',['$scope', function($scope){
-    $scope.sortBy = 'name';
-    $scope.reverse = !$scope.reverse;
-    
-    $scope.customers=[
-            {name:'Henry', age: 30, city: 'New York', country: 'USA', salary: '20.9912', DOB: '1985-01-17'},
-            {name:'Ram', age: 20, city: 'Thimphu', country: 'Bhutan', salary: '11.0912', DOB: '1996-02-11'},
-            {name:'Tina', age: 19, city: 'Kathmandu', country: 'Nepal', salary: '8.312', DOB: '1996-11-15'},
-            {name:'Jack', age: 35, city: 'Paris', country: 'France', salary: '14.5912', DOB: '1981-12-10'},
-            {name:'Sarita', age: 15, city: 'Honkong', country: 'China', salary: '10.7812', DOB: '2000-02-28'}];
-    
-    $scope.doSort = function(propName){
-        $scope.sortBy = propName;
-        $scope.reverse = !$scope.reverse;
-    };
-    
-    
-}]);
-
-
-
-
-
-//function SimpleController($scope){
-//            $scope.sortBy = 'name';
-//            $scope.reverse = !$scope.reverse;
-//    
-//    $scope.customers=[
-//            {name:'Henry', age: 30, city: 'New York', country: 'USA', salary: '20.9912', DOB: '1985-01-17'},
-//            {name:'Ram', age: 20, city: 'Thimphu', country: 'Bhutan', salary: '11.0912', DOB: '1996-02-11'},
-//            {name:'Tina', age: 19, city: 'Kathmandu', country: 'Nepal', salary: '8.312', DOB: '1996-11-15'},
-//            {name:'Jack', age: 35, city: 'Paris', country: 'France', salary: '14.5912', DOB: '1981-12-10'},
-//            {name:'Sarita', age: 15, city: 'Honkong', country: 'China', salary: '10.7812', DOB: '2000-02-28'}];
-//    
-//    $scope.doSort = function(propName){
-//        $scope.sortBy = propName;
-//        $scope.reverse = !$scope.reverse;
-//    };
-//}
+(function(){
+	
+	function ControllerNG($scope){
+		
+		$scope.user = {
+			name: 'David',
+			street: '208 Hyde park CT'
+		};
+	
+		$scope.users = [
+			{
+				name: 'David',
+				street: '208 Hyde park CT',
+				age: 25,
+				url: 'index.html'
+			},
+			{
+				name: 'Tina',
+				street: '1100 Weston Park Way',
+				age: 23,
+				url: 'index.html'
+			},
+			{
+				name: 'Messi',
+				street: '3120 Park Road',
+				age: 27,
+				url: 'index.html'
+			},
+			{
+				name: 'Ryan',
+				street: '300 New Millenium Way',
+				age: 40,
+				url: 'index.html'
+			},
+			{
+				name: 'Kajal',
+				street: '1111 Polaris Park way',
+				age: 24,
+				url: 'index.html'
+			}
+		];
+		
+		var counter = 0;
+		//$scope.tasks = [{title: 'Task 1'}];
+		$scope.addUser = function(name) {
+			console.log(name);
+			counter++;
+			$scope.users.push({
+				name: (name) ? name : 'New User' + counter,
+				street: counter + ' Radcliffe Drive',
+				age: counter
+			});
+		};
+	
+		$scope.changeData = function() {
+			counter++;
+			$scope.user = {
+				name: 'James',
+				street: counter + ' Radcliffe Drive'
+			};
+		};
+		
+	};
+	
+	angular
+	.module('app')
+	.controller('ControllerNG', [
+		'$scope',
+	ControllerNG]);
+}());
